@@ -100,9 +100,99 @@
 // console.log(profile2);
 
 // ********* map method
-const numbers = [5, 4, 3];
-const square = (number) => number * number;
+// const numbers = [5, 4, 3];
+// const square = (number) => number * number;
 
-const squares = numbers.map(square);
-console.log(numbers);
-console.log(squares);
+// const squares = numbers.map(square);
+// console.log(numbers);
+// console.log(squares);
+
+// ********* asynchronous
+// const request = new XMLHttpRequest();
+// console.log(1);
+// request.open("GET", "https://jsonplaceholder.typicode.com/photos", true);
+// console.log(2);
+// request.onload = function () {
+//   if (request.status === 200) {
+//     console.log(3);
+//     console.log(request.response);
+//   }
+// };
+// const before = Date.now();
+// request.send(null);
+// const after = Date.now();
+// const ms = after - before;
+// console.log(`ms: ${ms}`);
+
+// console.log(4);
+
+// ********* weaknesses
+// console.log(1);
+// setTimeout(() => {
+//   console.log(`1 sec...`);
+//   setTimeout(() => {
+//     console.log(`1 sec...`);
+//     setTimeout(() => {
+//       console.log(`1 sec...`);
+//     }, 1000);
+//   }, 1000);
+// }, 1000);
+// console.log(3);
+
+// ********* promise
+// console.log("start");
+
+// const sleep = (milliseconds) => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       console.log(`${milliseconds} ms`);
+//       resolve();
+//     }, milliseconds);
+//   });
+// };
+// const promise = sleep();
+
+// const isClosure = true;
+
+// sleep(900)
+//   .then(() => sleep(901))
+//   .then(() => sleep(902))
+//   .then(() => sleep(903))
+//   .then(() => sleep(904))
+//   .then(() => sleep(905));
+
+// ********* async and await
+// async function asyncCall() {
+//   await sleep(900);
+//   await sleep(901);
+//   await sleep(902);
+//   await sleep(903);
+//   await sleep(904);
+//   await sleep(905);
+// }
+// asyncCall();
+// console.log("end");
+
+// ********* fetch
+// const result = fetch("https://jsonplaceholder.typicode.com/todos/1");
+// console.log({ result });
+// fetch("https://jsonplaceholder.typicode.com/todos/1")
+//   .then((response) => {
+//     console.log({ response });
+//     const json = response.json();
+//     console.log({ json });
+//     return json;
+//     response.json();
+//   })
+//   .then((json) => console.log(json));
+
+// ********* fetch by async and await
+const url = "https://jsonplaceholder.typicode.com/users";
+
+const fetchUsers = async () => {
+  const result = await fetch(url);
+  console.log({ result });
+  const json = await result.json();
+  console.log({ json });
+};
+fetchUsers();
